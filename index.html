@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoes</title>
+  </head>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <body class="p-2">
+   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Shoes</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown me-2">
+              <select
+                class="form-select"
+                name="brand"
+                id="brand"
+                aria-label="Default select example"
+                onchange="filterShoes(event)"
+              >
+                <option selected value="">Brand</option>
+                <option value="Nike">Nike</option>
+                <option value="Adidas">Adidas</option>
+                <option value="New Balance">New Balance</option>
+                <option value="Vans">Vans</option>
+              </select>
+            </li>
+
+            <li class="nav-item dropdown me-2">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                name="color"
+                id="color"
+                onchange="filterShoes(event)"
+              >
+                <option selected value="">Color</option>
+                <option value="black">black</option>
+                <option value="red">red</option>
+                <option value="blue">blue</option>
+                <option value="green">green</option>
+              </select>
+            </li>
+
+            <li class="nav-item dropdown me-2">
+              <select
+                class="form-select"
+                name="size"
+                onchange="filterShoes(event)"
+                aria-label="Select shoe size"
+              >
+                <option value="" selected>Size</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+              </select>
+            </li>
+
+<li class="nav-item dropdown me-2">
+    <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+    >
+        Price: $<span id="priceValue">180</span>
+    </button>
+
+    <div class="dropdown-menu p-3" style="width: 220px;">
+        <label for="priceRange" class="form-label">
+            Maximum Price: $<span id="priceLabel">180</span>
+        </label>
+
+        <input
+            type="range"
+            class="form-range"
+            min="1"
+            max="180"
+            value="180"
+            id="priceRange"
+            name="price"
+            oninput="filterShoes(event)"
+        />
+    </div>
+</li> 
+
+          </ul>
+
+          
+          
+
+<div class="d-flex flex-nowrap align-items-center gap-2 ms-lg-auto py-2">
+    <input
+        type="search"
+        class="form-control"
+        id="searchInput"
+        placeholder="Brand, price, size, color..."
+        aria-label="Search shoes"
+        style="min-width: 0;"
+    />
+
+    <button
+        class="btn btn-outline-primary text-nowrap"
+        type="button"
+        onclick="searchShoes()"
+    >
+        Search
+    </button>
+</div>
+
+
+
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+      <div
+        class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3"
+        id="show-rows"
+      ></div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="index.js"></script>
+</html>
